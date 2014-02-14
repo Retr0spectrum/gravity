@@ -83,8 +83,8 @@ function updateFrame() {
   for (i=0;i<birdNumber;i++) {
     var vel = Math.sqrt( Math.pow(xVel[i], 2) + Math.pow(yVel[i], 2) ); 
     if (vel > 10) { // limits the velocity
-      xVel[i] *= 10/dist;
-      yVel[i] *= 10/dist;
+      xVel[i] *= 10/vel;
+      yVel[i] *= 10/vel;
     }
     xPos[i] += xVel[i];  //update the particle positions
     yPos[i] += yVel[i];
