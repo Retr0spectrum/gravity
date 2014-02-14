@@ -81,14 +81,14 @@ function updateFrame() {
     }
   }
   for (i=0;i<birdNumber;i++) {
-    var dist = Math.sqrt( Math.pow(xVel[i], 2) + Math.pow(yVel[i], 2) ); 
-    if (dist > 10) {
+    var vel = Math.sqrt( Math.pow(xVel[i], 2) + Math.pow(yVel[i], 2) ); 
+    if (vel > 10) { // limits the velocity
       xVel[i] *= 10/dist;
       yVel[i] *= 10/dist;
     }
-    xPos[i] += xVel[i];
+    xPos[i] += xVel[i];  //update the particle positions
     yPos[i] += yVel[i];
-    xVel[i] *= 0.995;
+    xVel[i] *= 0.995;  // drag
     yVel[i] *= 0.995;
   }
 }
@@ -96,7 +96,7 @@ function updateFrame() {
 function drawFrame() {
   for (i=0;i<birdNumber;i++) {
     px.data[3] = Math.sqrt( Math.pow(xVel[i], 2) + Math.pow(yVel[i], 2) )*25.6;
-    context.putImageData( px, xPos[i], yPos[i]); //draw the birds
+    context.putImageData( px, xPos[i], yPos[i]); //draw the particles
   }
 }
 
