@@ -22,7 +22,7 @@ var yVel = new Array(birdNumber);
 var mouseX = 0;
 var mouseY = 0;
 var mouseDown = false;
-var px = context.createImageData(1, 1);  // 1x1 image data for bird
+var px = context.createImageData(1, 1);  // 1x1 image data for particle
 px.data[0] = 0;
 px.data[1] = 255;
 px.data[2] = 0;
@@ -31,7 +31,7 @@ px.data[3] = 255;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-for (i=0;i<birdNumber;i++) {
+for (i=0;i<birdNumber;i++) { //sets random initial positions and velocities
   xPos[i] = Math.random()*canvas.width;
   yPos[i] = Math.random()*canvas.height;
   xVel[i] = (Math.random()*4)-2;
@@ -48,7 +48,7 @@ function animate() {
   updateFrame();
 
   // clear
-  canvas.width = window.innerWidth;
+  canvas.width = window.innerWidth; //resize canvas
   canvas.height = window.innerHeight;
   context.clearRect(0, 0, canvas.width, canvas.height);
 
